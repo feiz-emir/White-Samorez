@@ -1,0 +1,420 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[T2]{fontenc}
+\usepackage[warn]{mathtext}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{floatflt}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, footskip=10mm]{geometry}
+
+
+
+
+\newpage
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace{5cm}
+	{\scshape\LARGE Московский физико-технический институт \par}
+	\vspace{4cm}
+	{\scshape\Large Отчет по лабораторной работе \textnumero 5 \par}
+	\vspace{1cm}
+	{\huge\bfseries Изучение термодинамических параметров гетерогенных реакций ионного обмена методом потенциометрии \par}
+	\vspace{1cm}
+	\vfill
+\begin{flushright}
+	{\large выполнили студенты группы Б04-202}\par
+	\vspace{0.3cm}
+	{\LARGE Гомзин Александр} \par
+		\vspace{0.3cm}
+	{\LARGE Горячев Арсений} \par
+        \vspace{0.3cm}
+        {\LARGE Игумнов Дмитрий} \par
+\end{flushright}
+	
+
+	\vfill
+
+% Bottom of the page
+	Долгопрудный, 2024 г.
+\end{titlepage}
+
+	\thispagestyle{empty} % выключаем отображение номера для этой страницы
+
+
+	\newpage \large
+	
+		\tableofcontents % Вывод содержания
+	
+	\newpage
+%КОНЕЦ ЛИСТА СО СПРАВКОЙ
+\par
+	\large \textbf{Цель работы:}  определение изотерм ионного обмена между водными растворами электролитов 
+и ионитами (катионитами на основе полисурьмяной кислоты) методом потенциометрии.
+	\par \vspace{0.3 cm}
+	\textbf{В работе используются:} ионометр И-160М, магнитная мешалка, аналитические весы, микрошпатель для порошков, мерный цилиндр объемом 100 мл, стеклянный pH - чувствительный электрод, хлорсеребряный электрод сравнения, дозатор переменного объема 20-100 мкл, стеклянный стакан объемом 100 мл (3 шт), катионит - полисурьмяная кислота (порошок), растворы хлорида натрия, хлорида калия, хлорида лития (каждый 1М), деионизованная вода.
+
+	\section{Теоретические сведения}
+На основании методички. \par
+\subsection{Комментарии по поводу использованных в работе расчетных формул} \par
+ Выражение для константы равновесия для ионного обмена для случая монофункционального ионита в предположении равноценности всех связей обоих типов ионов и независимости взаимодействия ионов от степени заселенности твердой фазы: \par \vspace{0.3cm}
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE K_a = \frac{\Gamma_{Me^{+}} \cdot a_{H^{+}}}{\Gamma_{H^{+}} \cdot a_{Me^{+}}}
+\end{mathmode}
+
+\end{center}
+\vspace{0.3 cm}
+
+Активности ионов в растворе принимаем равными концентрациям:
+\par \vspace{0.3 cm}
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE a_{Me^{+}} \approx C_{Me^{+}}, \hspace{0.2 cm} a_{H^{+}} \approx C_{H^{+}} = 10^{-pH} M
+\end{mathmode}
+
+\end{center}
+\vspace{0.3 cm}
+
+Предельная емкость катионита (в единицах кол-ва вещества):
+\par \vspace{0.3 cm}
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE \nu_0 = \Delta \nu_{init} + \Delta \nu_{titr} + \Delta \nu_{max},
+\end{mathmode}
+
+\end{center}
+\vspace{0.3 cm}
+где \begin{mathmode} \Delta \nu_{init} \end{mathmode} - количество ионов калия, замещающих протоны в катионите после его добавления в воду (влияние методики измерения; определяется по начальному изменению pH в течение \begin{mathmode} \sim \end{mathmode} 5 мин), \begin{mathmode} \Delta \nu_{titr} \end{mathmode} - количество ионов натрия, замещающих протоны в результате титрования щелочью, \begin{mathmode} \Delta \nu_{max} \end{mathmode} - максимальное количество ионов металла, замещающих протоны в результате приливаний раствора соответствующего хлорида в течение длительного времени. \par \vspace{0.3 cm}
+
+Предельная емкость катионита (в единицах кол-ва вещества, деленного на массу катионита) и емкости ионов (содержание их в катионите): \par \vspace{0.3 cm}
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE \Gamma_0 = \frac{\nu_0}{m_{cationite}}, 
+\hspace{0.3 cm}
+\Gamma_{Me^+} = \frac{\nu_{Me^+}^{(cat.)}}{m_{cationite}},
+\par \vspace{0.3 cm}
+\Gamma_{H^+} = \frac{\nu_{H^+}^{(cat.)}}{m_{cationite}} = \frac{\nu_0 - \nu_{Me^+}^{(cat.)}}{m_{cationite}} = \Gamma_0 - \Gamma_{Me^+}
+\end{mathmode}
+
+\end{center}
+\vspace{0.3 cm}
+
+\newpage
+Равновесное количество ионов металла в катионите как функция номера прилитой порции раствора хлорида:
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE \nu_{Me^+}^{(cat.)}[1] = -10^{-pH_0} \cdot V_0 + 10^{-pH_{[1]}} \cdot (V_0 + V_{[1]}),
+\par \vspace{0.3 cm}
+\nu_{Me^+}^{(cat.)}[k] = \nu_{Me^+}^{(cat.)}[k-1] - 10^{-pH_{[k-1]}} \cdot (V_0 + \displaystyle\sum_{i=1}^{k-1} V_i) + 10^{-pH_{[k]}} \cdot (V_0 + \displaystyle\sum_{i=1}^{k} V_i)
+\end{mathmode}
+
+\end{center}
+\vspace{0.3 cm}
+
+Равновесное количество ионов металла в растворе как функция номера прилитой порции раствора хлорида:
+
+\begin{center}
+
+\begin{mathmode}
+\LARGE \nu_{Me^+}^{(solv.)}[1] = C_{MeCl} \cdot V_{[1]} + 10^{-pH_0} \cdot V_0 - 10^{-pH_{[1]}} \cdot (V_0 + V_{[1]}),
+\par \vspace{0.3 cm}
+\nu_{Me^+}^{(solv.)}[k] = \nu_{Me^+}^{(solv.)}[k-1] + C_{MeCl} \cdot V_{[k]} + 10^{-pH_{[k-1]}} \cdot (V_0 + \displaystyle\sum_{i=1}^{k-1} V_i) - 10^{-pH_{[k]}} \cdot (V_0 + \displaystyle\sum_{i=1}^{k} V_i)
+\end{mathmode}
+
+\end{center}
+
+
+
+
+
+
+
+\par \vspace{1cm}
+
+\section{Ход Работы}
+
+На основании методички. \par \vspace{0.3cm}
+\subsection{Существенные замечания} \par
+Цель работы - получение изотерм ионного обмена, что означает требование на постоянство температуры в течение эксперимента. Хотя в самом начале работы было открыто расположенное рядом окно, созданный в результате этого градиент температур можно считать несущественным на масштабе, соответствующем размеру сосуда с исследуемым раствором и электродами. \par \vspace{0.1 cm}
+Достижение равновесий в эксперименте оценивалось по влиянию добавления реагентов в раствор на показания ионометра. Время ожидания установления четко не фиксировалось, но поначалу составляло в районе 1-2 минут, затем, при достаточно малых изменениях показаний достигало 5 минут.
+
+\newpage
+\section{Экспериментальные данные}
+\vspace{0.5 cm}
+
+\begin{center}
+\textbf{Таблица 1.} pH воды после добавления катионита (0.511 г)
+
+\vspace{0.3cm}
+\begin{tabular}{|l|c|r|c|c|c|c|c|c|}
+    \hline
+    pH & 6.63 & 3.39 & 3.35 & 3.29 & 3.27 & 3.23 & 3.18\\
+    \hline
+    t, мин & 0 & 1 & 2 & 3 & 4 & 5 & 6\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\par \vspace{0.5cm}
+
+\begin{center}
+\textbf{Таблица 2.} Значения pH после добавлений 1М раствора NaCl
+\vspace{0.3cm} \par
+\begin{tabular}{|l|c|}
+    \hline
+    pH & \Delta V, \mu l\\
+    \hline
+    2.8 & 100\\
+    \hline
+    2.63 & 200\\
+    \hline
+    2.51 & 300\\
+    \hline
+    2.43 & 400\\
+    \hline
+    2.37 & 500\\
+    \hline
+    2.33 & 600\\
+    \hline
+    2.30 & 700\\
+    \hline
+    2.25 & 800\\
+    \hline
+    2.23 & 900\\
+    \hline
+    2.20 & 1100\\
+    \hline
+    2.18 & 1300\\
+    \hline
+    2.17 & 1500\\
+    \hline
+    2.15 & 1700\\
+    \hline
+    2.15 & 1900\\
+    \hline
+    2.14 & 2100\\
+    \hline
+    2.13 & 2300\\
+    \hline
+    2.13 & 2500\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\par \vspace{0.5cm}
+
+\begin{center}
+\textbf{Таблица 3.} Титрование с помощью NaOH
+
+\vspace{0.3 cm}
+\begin{tabular}{|l|c|r|c|c|c|c|c|c|c|c|}
+    \hline
+    pH & 2.23 & 2.37 & 2.55 & 2.82 & 3.21 & 3.91 & 4.95 & 6.36 & 7.15 & 8.10\\
+    \hline
+    \Delta V, \mu l& 200 & 400 & 600 & 800 & 1000 & 1200 & 1400 & 1600 & 1700 & 1800\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\par \vspace{0.5cm}
+
+\begin{center}
+\textbf{Таблица 4.} pH воды после добавления катионита (0.512 г)
+
+\vspace{0.3cm}
+\begin{tabular}{|l|c|r|c|c|c|c|c|c|}
+    \hline
+    pH & 6.72 & 3.35 & 3.30 & 3.27 & 3.25 & 3.22\\
+    \hline
+    t, мин & 0 & 1 & 2 & 3 & 4 & 5\\
+    \hline
+     
+\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+\textbf{Таблица 5.} Значения pH после добавлений 1М раствора KCl
+\vspace{0.3 cm} \par
+\begin{tabular}{|l|c|}
+    \hline
+    pH & \Delta {V}, \mu l\\
+    \hline
+    2.81 & 100\\
+    \hline
+    2.62 & 200\\
+    \hline
+    2.51 & 300\\
+    \hline
+    2.44 & 400\\
+    \hline
+    2.39 & 500\\
+    \hline
+    2.37 & 600\\
+    \hline
+    2.35 & 700\\
+    \hline
+    2.33 & 800\\
+    \hline
+    2.31 & 1000\\
+    \hline
+    2.30 & 1200\\
+    \hline
+    2.28 & 1400\\
+    \hline
+    2.28 & 1600\\
+    \hline
+    2.27 & 1800\\
+    \hline
+    2.27 & 2000\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\par \vspace{0.5cm}
+
+\begin{center}
+\textbf{Таблица 6.} pH воды после добавления катионита (0.510 г)
+
+\vspace{0.3cm}
+\begin{tabular}{|l|c|r|c|c|c|c|c|c|}
+    \hline
+    pH & 6.63 & 3.33 & 3.31 & 3.25 & 3.23 & 3.21\\
+    \hline
+    t, мин & 0 & 1 & 2 & 3 & 4 & 5\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\par \vspace{1cm}
+
+\begin{center}
+\textbf{Таблица 7.} Значения pH после добавлений 1М раствора LiCl
+\vspace{0.3cm} \par
+\begin{tabular}{|l|c|}
+    \hline
+    pH & \Delta {V}, \mu l\\
+    \hline
+    2.95 & 100\\
+    \hline
+    2.86 & 200\\
+    \hline
+    2.80 & 300\\
+    \hline
+    2.76 & 400\\
+    \hline
+    2.74 & 500\\
+    \hline
+    2.71 & 600\\
+    \hline
+    2.68 & 700\\
+    \hline
+    2.67 & 800\\
+    \hline
+    2.65 & 900\\
+    \hline
+    2.64 & 1000\\
+    \hline
+    2.63 & 1100\\
+    \hline
+    2.62 & 1200\\
+    \hline
+    2.60 & 1400\\
+    \hline
+    2.60 & 1600\\
+    \hline
+    2.60 & 1800\\
+    \hline
+    2.58 & 2000\\
+    \hline
+    2.57 & 2200\\
+    \hline
+    2.56 & 2400\\
+    \hline
+    2.55 & 2600\\
+    \hline
+    2.55 & 2800\\
+    \hline
+    2.54 & 3000\\
+    \hline
+\end{tabular}
+\end{center}
+\par
+
+
+
+\section{Обработка результатов}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{titr.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+По виду зависимости предполагаем, что предпоследняя полученная точка (\begin{mathmode} V_{NaOH} = 1.7 \hspace{0.1 cm} ml, \hspace{0.2 cm} pH \approx 7.15 \end{mathmode}) примерно соответствовала точке эквивалентности, дальнейший еще более быстрый рост функции объясняется сменой потенциалопределяющей реакции. \par \vspace{0.3 cm}
+По приведенной в первом разделе формуле получаем предельную емкость катионита: \par \vspace{0.3 cm}
+\begin{center}
+\begin{mathmode}
+\LARGE \Gamma_0 = (3.07 \pm 0.01) \hspace{0.1 cm} \frac{mmol}{g}
+\end{mathmode}
+\end{center}
+    
+\end{mathmode}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{pot1.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+\begin{center}
+Расчетные константы ионного обмена (для натрия и калия рассматриваются начальные линейные участки зависимостей; неоднозначность выбора граничных точек вносит дополнительную погрешность в значения): \par \vspace{0.3 cm}
+\LARGE \begin{mathmode} 
+K_{Na^+} = 0.67 \pm 0.04 \par
+K_{K^+} = 0.37 \pm 0.06 \par
+K_{Li^+} = 0.015 \pm 0.001 \par
+\end{mathmode}
+\end{center}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{pot2.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+\section{Заключение}
+Нами были получены изотермы для процессов ионного обмена в катионите с участием ионов натрия, калия и лития, были оценены значения констант равновесия. Использованный нами катионит (полисурьмяная кислота SbSiP 8:1:1) проявляет наибольшее сродство к катионам натрия, что можно объяснить подходящими размерами.
+
+ \end{document}	
+
