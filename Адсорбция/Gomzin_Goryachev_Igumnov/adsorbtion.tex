@@ -1,0 +1,378 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[T2]{fontenc}
+\usepackage[warn]{mathtext}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{chemarrow}
+\usepackage{floatflt}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, footskip=10mm]{geometry}
+
+
+
+
+\newpage
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace{5cm}
+	{\scshape\LARGE Московский физико-технический институт \par}
+	\vspace{4cm}
+	{\scshape\Large Отчет по лабораторной работе \par (дата выполнения: 01.03.2024) \par}
+	\vspace{1cm}
+	{\huge\bfseries Изучение адсорбции ароматических соединений из водных растворов на активированных углях методом УФ-спектрометрии \par}
+	\vspace{1cm}
+	\vfill
+\begin{flushright}
+	{\large выполнили студенты группы Б04-202}\par
+	\vspace{0.3cm}
+	{\LARGE Гомзин Александр} \par
+		\vspace{0.3cm}
+	{\LARGE Горячев Арсений} \par
+        \vspace{0.3cm}
+        {\LARGE Игумнов Дмитрий} \par
+\end{flushright}
+	
+
+	\vfill
+
+	Долгопрудный, 2024 г.
+\end{titlepage}
+
+	\thispagestyle{empty}
+
+
+	\newpage \LARGE
+	
+		\tableofcontents % Вывод содержания
+	
+	\newpage
+\par
+	\large \textbf{\sffamily{Цель работы:}} получение изотермы адсорбции бензойной кислоты (БК) на углеродном адсорбенте и проанализировать их, используя уравнения Генри, Фрейндлиха и Ленгмюра.
+	\par \vspace{0.3 cm}
+	\textbf{\sffsamily{В работе используются:}}
+        \begin{itemize}
+           \item мерные колбы на 100 мл - 6 шт.
+           \item конические колбы на 50 мл со стеклянными пробками - 6 шт.
+           \item лабораторный стакан на 250 мл - 1 шт.
+           \item стеклянная воронка - 1 шт.
+           \item бумажный фильтр - 6 шт.
+           \item пипетка на 25 мл с делениями - 1 шт.
+           \item лабораторный шейкер 
+           \item аналитические весы с разрешением 0.1 мг
+           \item УФ-спектрофотометр
+           \item кварцевые кюветы толщиной 1.0 см с крышечками - 2 шт.
+           \item сорбент: активный уголь
+           \item насыщенный раствор бензойной кислоты (БК) в мерной колбе - 1 л
+           \item дистиллированная вода
+           \item бумажные салфетки
+        \end{itemize}  
+\vspace{0.3 cm}
+	\section{\LARGE \textbf{Теоретические сведения}}
+Кратко рассмотрим несколько моделей и уравнений, описывающих адсорбцию. \par
+\subsection{\large{Изотерма Ленгмюра}} \par
+Схема для процесса адсорбции/десорбции в предположении, что поверхность адсорбента однородна, а адсорбат распологается слоем в одну молекулу, причем взаимодействие между адсорбированными молекулами пренебрежимо:
+\LARGE \[ M + (\ \ ) \;\autorightleftharpoons{K}{}\; (M)\]
+\large Выражение для константы такого равновесия для случая адсорбции вещества из раствора: \par \vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE K = \Gamma /[(\Gamma_{max} - \Gamma) \cdot C] = \Theta / [(1 - \Theta) \cdot C]
+
+
+\end{mathmode}
+\end{center}
+
+\par 
+\vspace{0.3 cm}
+
+Выразим параметр и рассмотрим предельные случаи:
+
+\par 
+\vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE \Theta = \frac{K \cdot C}{1 + K \cdot C}
+
+
+\end{mathmode}
+\end{center}
+
+\par 
+\vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE \Theta = \frac{K \cdot C}{1 + K \cdot C}
+
+
+\end{mathmode}
+\end{center}
+
+При \begin{mathmode} K C \gg 1 \end{mathmode} параметр стремится к единице (достигается насыщение).
+\par \vspace{0.3 cm}
+
+При \begin{mathmode} K C \ll 1 \end{mathmode}:
+\par \vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE \Theta = K \cdot C
+
+\end{mathmode}
+
+\par \vspace{0.3 cm}
+(изотерма Генри)
+\end{center}
+
+
+
+Переход к координатам, в которых зависимость линейная:
+\par 
+\vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE 1/\Gamma = 1/\Gamma_{max} + 1/[K_L \cdot C] \cdot 1/C
+
+
+\end{mathmode}
+\end{center}
+
+\subsection{\large{Изотерма Генри}} 
+\par
+
+Альтернативный вид изотермы (в таком виде проверяется в работе):
+\par 
+\vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE \Gamma = K_H \cdot C
+
+
+\end{mathmode}
+\end{center}
+
+
+\subsection{\large{Изотерма Фрейндлиха}} 
+\par
+
+Возможная аппроксимация при медленном росте заселенности с изменением концентрации:
+
+\par \vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE \Gamma = K_H \cdot C^n
+
+
+\end{mathmode}
+\end{center}
+
+В координатах с линейной зависимостью:
+\par \vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE ln\Gamma = lnK_H + nlnC
+
+
+\end{mathmode}
+\end{center}
+
+\subsection{\large{Закон Бугера -- Ламберта -- Бера}} 
+\par
+
+Ключевой прибор в данной работе -- спектрофотометр, который дает нам представления о спектре растворов -- зависимости так называемой "оптической плотности" \hspace{0.05 cm} от длины волны проходящего через кювету с образцом раствора света. На основании этих данных можно оценить концентрацию кислоты в конкретном растворе, основываясь на калибровочной зависимости. \par \vspace{0.3 cm}
+При таком определении мы предварительно убеждаемся в справедливости соотношения для интенсивностей до и после прохождения кюветы толщиной \textbf{l}, содержащей раствор с концентрацией \textbf{C}: \vspace{0.3 cm}
+
+\begin{center}
+\begin{mathmode}
+
+\LARGE I_{l} = I_0 \cdot e^{-\varepsilon C l}
+
+
+\end{mathmode}
+\end{center}
+
+Присутствующий в данной зависимости коэффициент \begin{mathmode} \textbf \varepsilon \end{mathmode} называют коэффициентом экстинкции; его и требуется определить, чтобы оценить концентрации растворов после их фильтрации с помощью активного угля. \par \vspace{0.3 cm}
+\newpage
+Преобразуем выражение: \par \vspace{0.3 cm}
+\begin{center}
+\begin{mathmode}
+
+\LARGE D := lg(I_0/I) = \frac{ln(I_0/I)}{ln10} \approx 0.4343 \cdot ln(I_0/I) = 0.4343 \cdot \varepsilon C l = \varepsilon_{10} C l
+
+\end{mathmode}
+\end{center}
+\par \vspace{0.3 cm}
+Величина \textbf{D} и есть та самая оптическая плотность, и именно в таком виде будем использовать данный закон.
+\par \vspace{0.3 cm}
+Данный закон лучше всего выполняется для параллельного пучка монохроматического света, проходящего через чистое вещество. Для смеси не взаимодействующих веществ суммарная оптическая плотность будет суммой плотностей компонент: \par \vspace{0.3 cm}
+\begin{center}
+\begin{mathmode}
+
+\LARGE D = \displaystyle\sum_{i} D_i = l \cdot \displaystyle\sum_{i} \varepsilon_i C_i
+
+\end{mathmode}
+\end{center}
+\par \vspace{0.3 cm}
+
+Существенные отклонения от закона могут быть связаны с немонохроматичностью света, его рассеянием при прохождении через раствор, а также ассоциацией или диссоциацией молекул веществ.
+\par \vspace{0.3 cm}
+В данной работе для определения концентрации будем определять положение максимума оптической плотности при примерно 270-275 нм (соответствует области поглощения для ароматических систем, которую в том числе содержит и БК).
+
+
+
+
+
+
+
+
+
+
+
+\par \vspace{1cm}
+
+\section{\LARGE Ход Работы}
+
+На основании методички. \par \vspace{0.3cm}
+\subsection{\large Существенные замечания} \par
+Основными проблемами при выполнении работы было использование недостаточно точных весов при отборе навески угля, не всегда точный отбор объёмов р-ра кислоты, а также, по-видимому, недостаточная фильтрация угля после отбора проб для повторного снятия спектров.
+
+\section{\LARGE \textbf{Экспериментальные данные}}
+\vspace{1.5 cm}
+
+\par
+
+\begin{center}
+\textbf{Таблица 1.} Концентрации водных приготовленных водных растворов БК
+
+\vspace{0.3cm}
+\begin{tabular}{|l|c|r|c|c|c|c|c|c|}
+    \hline
+    V(БК), мл & 2 & 4 & 6 & 8 & 10 & 25\\
+    \hline
+    C, мМ & 0.44 & 0.88 & 1.32 & 1.76 & 2.2 & 5.5\\
+    \hline
+     
+\end{tabular}
+\end{center}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.25]{sp1.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.25]{sp2.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+
+
+\section{\LARGE \textbf{Обработка результатов}}
+\par
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{bl.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+
+ Наблюдаем отклонение при значениях, соответствующих раствору с 8 мл БК, что может говорить о неаккуратности при приготовлении раствора.
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1]{sp3.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+В записанных спектрах для растворов после фильтрации наблюдаем тенденцию к завышению оптической плотности вдоль всего диапазона, что особенно заметно для раствора с добавлением 2 мл БК, конкретно для области длин волн больше 275 нм. В исходных спектрах (для образцов, куда не был добавлен активный уголь) оптическая плотность была практической нулевой уже на 300 нм, когда как для второго набора падение плотности с увеличением длины волны практически всегда достаточно медленное. \par \vspace{0.3 cm}
+Данное явление можно объяснить наличием во втором наборе растворов неудаленного активного угля, вносящего, в том числе, вклад в поглощение. Простейший способ учета данного отклонения -- вычитание из спектра значений, соответствующих активному углю (по предполагаемой аддитивности оптических плотностей). Конкретно в наших вычислениях вычитаем из всего спектра реальные значения оптических плотностей при 300 нм (предполагаем поглощение углем равномерным в диапазоне за неимением более точных данных).
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{lang2.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{lang.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=1.2]{freund.png}
+	
+
+	\par
+ \vspace{0.3cm}
+ \end{center}
+\vspace{0.3cm}
+\par
+
+
+
+\section{\LARGE \textbf{Заключение}}
+\par \vspace{0.3 cm}
+
+В данной работе нами были получены изотермы адсорбции в различных координатах, соответствующих разным описаниям процесса. Использованный способ проверки гипотез о линейности в соответствующих координата, а именно коэффициент корреляции, дает достаточно близкие значения (0.97 -- 0.99) для всех трех подходов с лишь небольшим преимуществом уравнения Генри. \par \vspace{0.3 cm} 
+Для более тонкого сравнения потребовалась бы более тщательная оценка погрешностей измерений, которая затруднена из-за влияния процесса измерений на спектрофотометре, а в еще большей степени -- из-за возможного и труднооценимого влияния оставшегося в растворах угля. 
+
+
+
+\end{document}	
+
+
