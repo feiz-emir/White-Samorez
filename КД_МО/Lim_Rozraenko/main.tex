@@ -1,0 +1,224 @@
+\documentclass[a4paper,12pt]{article} % тип документа
+
+%  Русский язык
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{indentfirst} %Красная строка
+\usepackage[a4paper,top=1.3cm,bottom=2cm,left=1.5cm,right=1.5cm,marginparwidth=0.75cm]{geometry}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{float}
+
+\usepackage{graphicx}%картинки
+\usepackage{textcomp}%Номер
+\usepackage{wrapfig}%обтекание текстом теблиц и картинок
+%гиперссылки
+\usepackage{hyperref}
+\usepackage[rgb]{xcolor}
+\hypersetup{     %гипперсылки
+ colorlinks=true, %false:ссылки в рамках
+ urlcolor=blue   %на URL
+ }
+% Заметки
+\usepackage{todonotes}
+% Номера формул(необязятельна, см. по ситуации)
+%\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+\usepackage{wasysym}
+
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+\title{\textbf{Лабораторная работа. Определение константы диссоциации метилового оранжевого} }
+
+\author{Алекснадров Максим, Кузнецов Роман, Тналиев Тимур \\ Б04-202}
+\date{9 февраля 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Введение:}
+\paragraph{Цель работы:}
+\quad
+\\
+\\ - Регистрация спектров поглощения растворов метилового оранжевоо с различными значениями pH в видимой и УФ-областях спектра;
+\\ - Определение рабочих длин волн для кислой и основной форм исследуемого индикатора, нахождение изобестической точки;
+\\ - Проверка закона Бугера-Ламберта-Бера; определение коэффициентов экстинкции кислой и основной форм индикатора на выбранных длинах волн;
+\\ - Определение константы диссоциации метилового оранжевого.
+\paragraph{Необходимое оборудование и материалы:}
+\quad
+\\
+\\ -- Мерные колбы на 50 мл - 10 шт;
+\\ -- Спектрофотометр, кварцевая кювета толщиной 1 см.
+\\ -- Исходные готовые растворы (приготовлены лаборантом);
+\\ \quad - Раствор метилового оранжевого 0.2 г/л;
+\\ \quad - 0.1 М раствор HCL;
+\\ \quad - 0.1 М раствор NaOH;
+\\ -- Буферные растворы;
+\\ -- Рабочие растворы.
+
+\section{Ход работы:}
+\paragraph{Определение коэффициентов экстинкции протонированной и депротонированной форм метилового оранжевого на длине на $\lambda_1$ = нм}
+\paragraph{}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|}
+        \hline
+           Растворенное вещество & Концентрация\\\hline
+           Метиловый оранжевый   & 1.0 г/л\\\hline
+           HCl & 0.1 М \\\hline
+           NaOH & 0.1 М\\\hline
+           CH${_3}$COOH & 0.3 м \\\hline
+        \end{tabular}
+        \caption{Концентрации исходных растворов}
+    \end{center}
+\end{table}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+            № р-ра & Р-р м-ж 0.2 г/л & Р-р К/Щ 0.1 н & Вода\\\hline
+            1 & 2.0 мл & 5 мл HCl & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            2 & 1.5 мл & 5 мл HCl & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            3 & 1.0 мл & 5 мл HCl & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            4 & 0.5 мл & 5 мл HCl & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            5 & 2.5 мл & 5 мл NaOH & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            6 & 2.0 мл & 5 мл NaOH & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            7 & 1.5 мл & 5 мл NaOH & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            8 & 1.0 мл & 5 мл NaOH & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            9 & 2.0 мл & 25 мл буфер 1 & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            10 & 2.0 мл & 25 мл буфер 2 & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            11 & 2.0 мл & 25 мл буфер 3 & Доб. воду в каждый р-р доводя его объем до 5 мл\\\hline
+            12 & 0 мл & 0 мл HCl & -\\\hline
+        \end{tabular}
+        \caption{Растворы}
+    \end{center}
+\end{table}
+\quad
+\\
+\\Буферный раствор I (pH = 3.9) готовят в мерной колбе на 200 мл из ацетата натрия и уксусной кислоты. Может использоваться безводный ацетат натрия, дигидриат или тригидрат. Рассчитывают навеску ацетата натрия, чтобы его концентрация в готовом буферном растворе была равна 0.02 М. Необходимое количество уксусной кислоты рассчитывают по формуле Гендерсона.
+\begin{equation}
+    pH = - \log{K_{\alpha}(AcOH)} + \log{\frac{C(AcONa)}{C(AcOH)}}
+\end{equation}
+\\Буфер II (pH = 3.7) и буфер III(pH = 3.5) готовят из буфера I в стаканчиках на 50 мл, добавляя по каплям уксусную кислоту. Значение pH контролирует по ионометру.
+\\Раствор метилового оранжевого с концентрацией 0,2 г/л готовят в мерной колбе 50 мл.
+\\Из этих растворов готовят рабочие растворы в мерных колбах на 50 мл (доводят до метки водой).
+
+\quad
+\\
+\\Были выбраны следующие рабочие длины волны:
+\\1) 470 нм;
+\\2) 510 нм;
+\paragraph{}
+\\
+Находим угловые коэффициенты для графиков 4-7. Из них получаем коэффициенты экстинкции двух форм индикатора на двух выбранных значениях рабочей длины волны:
+\\1) $\varepsilon_{\gamma}$ = 5333 л/(моль*см) (4 график)
+\\2) $\varepsilon_{\gamma}$ = 6190 л/(моль*см) (5 график)
+\\3) $\varepsilon_{\gamma}$ = 3200 л/(моль*см) (6 график)
+\\4) $\varepsilon_{\gamma}$ = 1538 л/(моль*см) (7 график)
+
+\paragraph{}
+\\
+Посчитаем $D_{kisl}$ и $D_{shel}$ по формулам:
+\begin{equation}
+    D_{kisl} = \varepsilon_{HA}l C_0
+\end{equation}
+
+\begin{equation}
+    D_{shel} = \varepsilon_{A_{-}}l C_0
+\end{equation}
+
+\quad
+\\
+\\1) $D_{kisl}$ ($\lambda_1$) =  0.152
+\\2) $D_{kisl}$ ($\lambda_2$) =  0.131
+\\3) $D_{shel}$ ($\lambda_1$) =  0.037
+\\4) $D_{shel}$ ($\lambda_2$) = 0.078
+
+\paragraph{}
+\quad
+\\
+\\Посчитаем степени диссоциации:
+\\1) $\lambda_1 (9,10,11)$: $\alpha_1$ = 0.602, 0.751, 0.077.
+\\2) $\lambda_2 (9,10,11)$: $\alpha_2$ = 1.07, 1.31, 1.05.
+
+\newpage
+\section{Приложения:}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1.1\linewidth]{graph_1_new.png}
+    \begin{center}
+    \caption{Спектры всех растворов}
+    \end{center}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1.0\linewidth]{graph_2_new_new.png}
+    \begin{center}
+    \caption{Спектры всех растворов кроме воды}
+    \end{center}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=1.1\linewidth]{graph3_1691011.png}
+    \begin{center}
+    \caption{Спектры растворов 1,6,9,10,11}
+    \end{center}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{graph4.jpg}
+    \begin{center}
+    \caption{График зависимости D от С(HCl($\lambda_2$)}
+    \end{center}
+\end{center}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{graph5.jpg}
+    \begin{center}
+    \caption{График зависимости D от С(HCl($\lambda_1$)}
+    \end{center}
+\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{graph6.jpg}
+    \begin{center}
+    \caption{График зависимости D от С(NaOH($\lambda_2$)}
+    \end{center}
+\end{center}
+\end{figure}
+
+
+\newpage
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=0.75\linewidth]{graph7.jpg}
+    \begin{center}
+    \caption{График зависимости D от С(NaOH($\lambda_1$)}
+    \end{center}
+\end{center}
+\end{figure}
+\end{document}
