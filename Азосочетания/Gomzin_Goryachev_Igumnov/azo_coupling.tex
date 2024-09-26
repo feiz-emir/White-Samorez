@@ -1,0 +1,409 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage[T2]{fontenc}
+\usepackage[warn]{mathtext}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\DeclareMathOperator{\tg}{tg}
+\DeclareMathOperator{\lg}{lg}
+\usepackage{siunitx}
+\usepackage{ifthen,calc}
+\usepackage{floatflt}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm, footskip=10mm]{geometry}
+
+\newenvironment{Nothing}{}{}
+\newcounter{CarroW}\newcounter{CarroWW}
+\newlength{\suparrow}
+\newlength{\subarrow}
+\newcommand{\Charrow}[4][20]{%
+    \settowidth{\suparrow}{\scriptsize #3}%
+    \settowidth{\subarrow}{\scriptsize #4}%
+    \ifthenelse{\lengthtest{\suparrow>\subarrow}}
+     {\setcounter{CarroW}{10+1*\ratio{\suparrow}{.1em}}}
+     {\setcounter{CarroW}{10+1*\ratio{\subarrow}{.1em}}}%
+    \ifthenelse{\lengthtest{\suparrow=\subarrow}}
+     {\ifthenelse{\equal{#3}{}}
+      {\setcounter{CarroW}{#1}}
+      {\setcounter{CarroW}{10+1*\ratio{\suparrow}{.1em}}}}
+     {}%
+    \ifthenelse{\equal{#1}{20}}
+     {}
+     {{\setcounter{CarroW}{#1}}}%
+    \setcounter{CarroWW}{\value{CarroW}/2}%
+    \begin{Nothing}%
+    \unitlength=.1em%
+    \ifthenelse{\equal{#2}{l}}
+    {\addtocounter{CarroWW}{1}%
+    \begin{picture}(\value{CarroW},0)
+         \put(\value{CarroW},3){\vector(-1,0){\value{CarroW}}}
+         \put(\value{CarroWW},4){\makebox(0,0)[b]{\scriptsize #3}}
+         \put(\value{CarroWW},2){\makebox(0,0)[t]{\scriptsize #4}}
+    \end{picture}}
+    {}%
+    \ifthenelse{\equal{#2}{r}}
+    {\addtocounter{CarroWW}{-1}%
+    \begin{picture}(\value{CarroW},0)
+         \put(0,3){\vector(1,0){\value{CarroW}}}
+         \put(\value{CarroWW},4){\makebox(0,0)[b]{\scriptsize #3}}
+         \put(\value{CarroWW},2){\makebox(0,0)[t]{\scriptsize #4}}
+    \end{picture}}
+    {}%
+    \ifthenelse{\equal{#2}{lr}}
+    {\begin{picture}(\value{CarroW},0)
+        \put(\value{CarroW},4.5){\vector(-1,0){\value{CarroW}}}
+        \put(0,1.5){\vector(1,0){\value{CarroW}}}
+        \put(\value{CarroWW},5.5){\makebox(0,0)[b]{\scriptsize #3}}
+        \put(\value{CarroWW},.5){\makebox(0,0)[t]{\scriptsize #4}}
+    \end{picture}}
+    {}%
+    \ifthenelse{\equal{#2}{rl}}
+    {\begin{picture}(\value{CarroW},0)
+        \put(\value{CarroW},1.5){\vector(-1,0){\value{CarroW}}}
+        \put(0,4.5){\vector(1,0){\value{CarroW}}}
+        \put(\value{CarroWW},5.5){\makebox(0,0)[b]{\scriptsize #3}}
+        \put(\value{CarroWW},.5){\makebox(0,0)[t]{\scriptsize #4}}
+    \end{picture}}
+    {}%
+    \end{Nothing}%
+    \settoheight{\suparrow}{\scriptsize #3}%
+    \settoheight{\subarrow}{\scriptsize #4}%
+    \addtolength{\suparrow}{.6em}%
+    \addtolength{\subarrow}{-.1em}%
+    \makebox[0pt]{\raisebox{0pt}[\suparrow][\subarrow]{}}%
+}
+
+
+
+
+\newpage
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace{5cm}
+	{\scshape\LARGE Московский физико-технический институт \par}
+	\vspace{4cm}
+	{\scshape\Large Отчет по лабораторной работе \par}
+        {\scshape\large (дата выполнения работы: 13.09.2024) \par}
+	\vspace{1cm}
+	{\huge\bfseries Изучение кинетики реакции азосочетания методом спектрофотометрии \par}
+	\vspace{1cm}
+	\vfill
+\begin{flushright}
+	{\large выполнили студенты группы Б04-202}\par
+	\vspace{0.3cm}
+	{\LARGE Гомзин Александр} \par
+		\vspace{0.3cm}
+	{\LARGE Горячев Арсений} \par
+        \vspace{0.3cm}
+        {\LARGE Игумнов Дмитрий} \par
+\end{flushright}
+	
+
+	\vfill
+
+	Долгопрудный, 2024 г.
+\end{titlepage}
+
+	\thispagestyle{empty}
+
+
+	\newpage \LARGE
+	
+		\tableofcontents % Вывод содержания
+	
+	\newpage
+\par
+\section{\LARGE \textbf{Аннотация}}
+\par \hspace{0.4 cm} \large
+\textit{\sffamily{Азосоединения}} --- органические соединения, содержащие в своем составе одну или несколько азогрупп (--N=N--). На основе азосоединений производят один из важнейших классов красителей --- \textit{азокрасители}, имеющие самый широкий круг применений. \par
+Получают их обычно путем диазотирования соответствующих аминов с последующим азосочетанием. Этот способ применяется и в данной работе. Считается, что первой стадией процесса азосочетания является образование так называемого $\sigma$-\textit{комплекса}, от которого затем относительно медленно отрывает протон органическое основание или вода, выступающая в качестве растворителя. В данной работе на основании спектрофотометрических измерений будет продемонстриравана зависимость концентрации красителя от времени при разных начальных данных, а также исследованы кинетические характеристики, описывающие процесс в целом и две его возможные медленные стадии. 
+\par \vspace{0.2 cm}
+\textbf{\sffamily{Цель работы:}} расчет констант $k_{eff}, k^{'}_2, k^{'}_3$, а также оценка константы скорости $k_1$, где $k_{eff}$ --- эффективная константа скорости суммарной реакции азосочетания, а $k^{'}_2$ и $k^{'}_3$ --- эффективные скорости образования продукта при реакции с органическим основанием (триэтиламином) и с водой соответственно.
+
+
+\section{\LARGE \textbf{Теоретические сведения}}
+\subsection{\Large Кинетика реакции азосочетания}
+\par \hspace{0.4 cm}
+На \textit{рис. 1} представлен предполагаемый механизм азосочетания дикалиевой соли 2-нафтол-6,8-дисульфокислоты Ar$^{'}$H$^{-}$ с солью диазония Ar$^{''}$N$_2^{+}$, полученной из анилина (или параброманилина). На первой стадии обратимо протекает образование $\sigma$-комплекса, который во второй стадии взаимодействует с основанием (B). В результате взаимодействия образуется продукт азосочетания Ar$^{'}$N=NAr$^{''}$ и протонированная форма основания BH$^{+}$.
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.4]{Снимок экрана (290).png}
+    \par
+\textbf{Рис. 1: }\textit{Механизм реакции азосочетания в присутствии основания}.
+ \end{center}
+\par \vspace{0.5 cm}
+
+В качестве основания могут выступать органические основания, такие как триэтиламин или 2,6-лутидин. Кроме основного канала реакции, образование продукта также происходит при взаимодействии $\sigma$-комплекса с водой. \par
+Лимитирующей стадией является (согласно даныным литературы) стадия разрыва связи C--H в $\sigma$-комплексе. В качестве доказательства можно привести наличие \textit{кинетического изотопного эффекта}.
+\par \vspace{0.5 cm}
+
+\textit{Схема реакции} в присутствии органического основания и воды:
+\[
+\rm Ar^{'}H^{-} + Ar^{''}N_2^{+} \hspace{0.2 cm} {\mbox{\Charrow[30]{rl}{$k_1$}{$k_{-1}$}}} \hspace{0.2 cm} \sigma\text{-комплекс} \hspace{0.5 cm} \text{(\textit{быстро})}
+\]
+\[
+\rm \sigma\text{-комплекс} + B \hspace{0.2 cm} {\mbox{\Charrow[30]{r}{$k_2$}{}}} \hspace{0.2 cm} Ar^{'}N\text{=}NAr^{''} + BH^{+} \hspace{0.2 cm} \text{(\textit{медленно})}
+\]
+\[
+\rm \sigma\text{-комплекс} + H_2O \hspace{0.2 cm} {\mbox{\Charrow[30]{r}{$k_3$}{}}} \hspace{0.2 cm} Ar^{'}N\text{=}NAr^{''} + H_3O^{+} \hspace{0.2 cm} \text{(\textit{медленно})}
+\]
+\par \vspace{0.2 cm}
+При быстром установлении равновесия в \textit{реакции 1} устанавливается так называемый \textit{квазиравновесный режим}. В этом случае концентрацию $\sigma$-комплекса можно оценить из константы равновесия первой стадии:
+\[
+K = \frac{k_1}{k_{-1}} = \frac{[\sigma]}{\left[\rm Ar^{'}H^{-}\right]\left[\rm Ar^{''}N_2^{+}\right]}
+\]
+\[
+[\sigma] = \frac{k_1}{k_{-1}} \cdot [\rm Ar^{'}H^{-}] [\rm Ar^{''}N_2^{+}]
+\]
+\par \vspace{0.2 cm}
+Суммарная скорость образования продукта в двух параллельных реакциях:
+\[
+W = \frac{d[\rm Ar^{'}N\text{=}NAr^{''}]}{dt} = (k_2[\rm B] \it + k_{\rm 3}[\rm H_2O]) \cdot [\sigma] =
+\]
+\[
+= (k_2[\rm B] \it + k_{\rm 3}[\rm H_2O]) \it \cdot \frac{k_{\rm 1}}{k_{\rm -1}}[\rm Ar^{'}H^{-}] [\rm Ar^{''}N_2^{+}] \it = \left( \frac{k_{\rm 1} \cdot k_{\rm 2}}{k_{\rm -1}}[\rm B] \it + \frac{k_{\rm 1} \cdot k_{\rm 3}}{k_{\rm -1}}[\rm H_2O] \right) \it \cdot [\rm Ar^{'}H^{-}] [\rm Ar^{''}N_2^{+}] =
+\]
+\[
+= \left( k_2^{'}[\rm B] \it + k_{\rm 3}{'} \right) \cdot [\rm Ar^{'}H^{-}] [\rm Ar^{''}N_2^{+}]
+\]
+\par \vspace{0.2 cm}
+Считается, что концентрация воды, находящейся в большом избытке, постоянна. А также при небольших степенях превращения, т.е. на начальных участках кривых, считается постоянной концентрация основания [B]. Можно определить следующую величину:
+\[
+k_{eff} = k_3^{'} + k_2^{'}[\rm B] 
+\]
+\par \vspace{0.2 cm}
+вычисляемую из экспериментальных данных. \par \vspace{0.1 cm}
+Теперь перепишем уравнение, описывающее кинетику образования азокрасителя, в более компактных обозначениям и получим его решение:
+\[
+\frac{dx}{dt} = k_{eff}(c_{\text{г}} - x)(c_{\text{д}} - x)
+\]
+\par \vspace{0.2 cm}
+где $x$ --- текущая концентрация азокрасителя, а $c_{\text{г}}$ и $c_{\text{д}}$ --- начальные концентрации Г-соли и соли диазония соответственно.
+\[
+\frac{dx}{(c_{\text{г}} - x)(c_{\text{д}} - x)} = \frac{1}{c_{\text{г}} - c_{\text{д}}} \cdot \left[ \frac{dx}{c_{\text{д}} - x} - \frac{dx}{c_{\text{г}} - x} \right] = k_{eff}dt
+\]
+\[
+\frac{1}{c_{\text{г}} - c_{\text{д}}} \cdot \left[ \int{ \frac{d\left( \frac{x}{c_{\text{д}}} \right)}{1 - \frac{x}{c_{\text{д}}}} } + \int{ \frac{d\left( -\frac{x}{c_{\text{г}}} \right)}{1 - \frac{x}{c_{\text{г}}}} } \right] = \frac{1}{c_{\text{г}} - c_{\text{д}}} \cdot 
+\left[ \int{ \frac{d\left( 1 - \frac{x}{c_{\text{г}}} \right)}{1 - \frac{x}{c_{\text{г}}}} } - \int{ \frac{d\left( 1 -\frac{x}{c_{\text{д}}} \right)}{1 - \frac{x}{c_{\text{д}}}} } \right] = 
+\]
+\[
+\boxed{\frac{1}{c_{\text{г}} - c_{\text{д}}} \cdot \ln{\left[ \frac{ 1 - \frac{x}{c_{\text{г}}} }{ 1 - \frac{x}{c_{\text{д}}} } \right]} = k_{eff} \cdot t}
+\]
+
+\section{\LARGE \textbf{Методика измерений}}
+\par \hspace{0.4 cm}
+По закону Бугера -- Ламберта -- Бера при концентрации азокрасителя $x$ оптическая плотность $D = \varepsilon l x$. Пусть $D_{\infty}$ --- оптическая плотность при полном израсходовании соли диазония, тогда $x_{\infty} = c_{\text{д}}$. Отсюда:
+\[
+D_{\infty} = \varepsilon l x; \hspace{0.4 cm} x = \frac{D}{\varepsilon l} = \frac{D}{D_{\infty}} \cdot c_{\text{д}}
+\] \par
+Исходя из этого перепишем формулу в рамке:
+\[
+\boxed{\frac{1}{c_{\text{г}} - c_{\text{д}}} \cdot \ln{ \left[ \frac{ D_{\infty} - D \cdot \frac{c_{\text{д}}}{c_{\text{г}}} }{ D_{\infty} - D } \right] } = k_{eff} \cdot t}
+\]
+\par
+
+Спектрофотометрические измерения проводятся на 500 нм, при включенном термостате, с общим временем регистрации 10 мин и интервалом между точками 5 с. Реакция проводится в буферном растворе, и в качестве орг. основания используется триэтиламин ($\rm B \equiv NEt_3$). Измерения начинаются с базовой линии --- сам буферный раствор. Затем измеряется раствор с максимальной концентрацией триэтиламина и после него --- все прочие. В самом конце снова измеряется раствор с наибольшей концентрацией и оценивается величина $D_{\infty}$. Измерения оптических плотностей проводятся спустя 1 минуту после смешивания растворов, то есть спустя время, гипотетически достаточное для установления равновесия в первой стадии --- образовании $\sigma$-комплекса.
+
+\section{\LARGE \textbf{Используемое оборудование и материалы}}
+\textbf{\sffsamily{Оборудование и материалы:}}
+    \begin{itemize}
+        \item аналитические весы, секундомер;
+        \item спектрофотометр;
+        \item кювета толщиной 1 см;
+        \item мерные колбы на 25 мл --- 6 шт.;
+        \item стаканчики на 50 мл --- 3 шт.;
+        \item автоматические пипетки на 0.1--1.0 и 1.0--5.0 мл;
+        \item  охлаждающая баня (емкость с мокрым снегом или тающим мелким льдом);
+        \item 2-нафтол-6,8-дисульфокислоты дикалиевая соль (торговое название --- Г-соль);
+        \item броманилин;
+        \item нитрит натрия;
+        \item триэтиламин;
+        \item 1M раствор $\rm HCl$;
+        \item буферный раствор (pH = 7.0)
+        \end{itemize}  
+\par \vspace{1 cm}
+
+
+\textbf{\sffsamily{Используемые готовые растворы:}}
+\par \vspace{0.2 cm}
+
+\boxed{1} \hspace{0.1 cm} \textit{Фосфатный буферный раствор} pH 7.0 (\textit{буфер Соренсена}). \par \vspace{0.2 cm}
+Буфер готовится смешением 39 мл раствора А (3.12 г $\rm NaH_2PO_4 \cdot 2H_2O$ в 100 мл воды) и 61 мл раствора Б (7.17 г $\rm NaH_2PO_4 \cdot 12H_2O$) $+$ 3.73 $\rm KCl$. \par \vspace{0.2 cm}
+
+\boxed{2} \hspace{0.1 cm} \textit{Раствор триэтиламина:} 0.05 M в буферном растворе. \par \vspace{0.2 cm}
+
+\boxed{3} \hspace{0.1 cm} \textit{Раствор анилина} (1.78 г) в 1 M соляной кислоте (30 мл). \par \vspace{0.5 cm}
+
+
+\textbf{\sffsamily{Изготавливаемые растворы:}}
+\par \vspace{0.2 cm}
+
+\boxed{4} \hspace{0.1 cm} \textit{Раствор Г-соли:} 0.05 M в буферном растворе. \par \vspace{0.2 cm}
+Навеска Г-соли 0.95 г растворяется в буферном растворе в мерной колбе на 50 мл. \par \vspace{0.2 cm}
+
+\boxed{5} \hspace{0.1 cm} \textit{Раствор нитрита натрия:} 0.035 г $\rm NaNO_2$ в 10 мл воды в стаканчике. \par \vspace{0.2 cm}
+
+\boxed{6} \hspace{0.1 cm} \textit{Диазониевый раствор:} 0.02 M в воде, готовится при охлаждении ($T=0$--$5^{\circ}C$). \par \vspace{0.2 cm}
+Стаканчик с 1.5 мл раствора анилина в соляной кислоте переносится в ледяную баню. К этому раствору медленно добавляются 10 мл охлажденного раствора $\rm NaNO_2$. Полученную реакционную смесь переносят в 25 мл мерную колбу и доводят до 25 мл охлажденной дистиллированной водой. На всем протяжении лабораторной работы колба с полученным хранится в охлаждающей бане при 0$^{\circ}$C.
+\par \vspace{0.2 cm}
+Далее приведем составы рабочих растворов, используемых в процессе измерений:
+
+\begin{center}
+\textbf{Таблица 1.} Составы растворов для проведения экспериментов.
+
+\vspace{0.3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \textnumero \hspace{0.05 cm} опыта & 1 & 2 & 3 & 4 & 5\\
+    \hline
+    $V_{\text{\textit{р-ра}}}$([Г-соль] = 0.05 M), мл & 1.0 & 1.0 & 1.0 & 1.0 & 1.0\\
+    \hline
+    [Г-соль]$_0$, мM & 2.0 & 2.0 & 2.0 & 2.0 & 2.0\\
+    \hline
+     $V_{\text{\textit{р-ра}}}$([$\rm NEt_3$] = 0.05 M), мл & 1.0 & 1.5 & 2.0 & 2.5 & 3.0\\
+    \hline
+     [$\rm NEt_3$]$_0$, мM & 2.0 & 3.0 & 4.0 & 5.0 & 6.0\\
+    \hline
+    $V_{\text{\textit{р-ра}}}$([$\rm Ar^{''}N_2^{+}$] = 0.02 M), мл & 1.0 & 1.0 & 1.0 & 1.0 & 1.0\\
+    \hline
+    [$\rm Ar^{''}N_2^{+}$]$_0$, мM & 0.8 & 0.8 & 0.8 & 0.8 & 0.8\\
+    \hline
+    Общий объем раствора $V_{\Sigma}$, мл & 25 & 25 & 25 & 25 & 25\\
+    \hline
+     
+\end{tabular}
+\end{center}
+\vspace{0.2 cm}
+
+\section{\LARGE Результаты измерений}
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.6]{буфер.png}
+    \par
+\textbf{Рис. 2}: \textit{Базовая линия (буферный раствор)}.
+ \end{center}
+
+ \subsection{\Large Первичные данные экспериментов}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.9]{Di_full.png}
+    \par
+\textbf{Рис. 3}: \textit{Зависимости оптической плотности от времени для разных опытов}.
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.9]{Di_full_limited.png}
+    \par
+\textbf{Рис. 4}: \textit{Использованный диапазон первичных данных}.
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{d_inf.png}
+    \par
+\textbf{Рис. 5}: \textit{Результаты опыта по определению $D_{\infty}$}, [$\rm NEt_3$]$_0$ = 6 мМ.
+\end{center}
+\par \vspace{0.5 cm}
+
+
+\section{\LARGE Обработка данных}
+\par \hspace{0.4 cm}
+Исходя из последнего графика, получим оценку: $D_{\infty} = 4.5$. \par
+Далее перейдем к зависимостей $\alpha_i[t] := \ln{ \frac{D_{\infty} - D_i[t] \cdot \frac{c_{\text{д}}}{c_{\text{г}}}}{D_{\infty} - D_i[t]}}$, $i = \overline{1, 5}$ \par
+Коэффициенты наклона зависимостей $\frac{1}{c_{\text{г}} - c_{\text{д}}} \alpha_i[t]$ будут соответствовать константам $k_{eff}$.
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{rel_ln1.png}
+    \par
+\textbf{Рис. 6}: \textit{График для определения} $k_{eff}$, [$\rm NEt_3$]$_0$ = 2 мМ.
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{rel_ln2.png}
+    \par
+\textbf{Рис. 7}: \textit{График для определения} $k_{eff}$, [$\rm NEt_3$]$_0$ = 3 мМ. 
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{rel_ln3.png}
+    \par
+\textbf{Рис. 8}: \textit{График для определения} $k_{eff}$, [$\rm NEt_3$]$_0$ = 4 мМ.
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{rel_ln4.png}
+    \par
+\textbf{Рис. 9}: \textit{График для определения} $k_{eff}$, [$\rm NEt_3$]$_0$ = 5 мМ.
+\end{center}
+\par \vspace{0.5 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{rel_ln5.png}
+    \par
+\textbf{Рис. 10}: \textit{График для определения} $k_{eff}$, [$\rm NEt_3$]$_0$ = 6 мМ.
+\end{center}
+\par \vspace{0.5 cm}
+
+\begin{center}
+\textbf{Таблица 2.} Расчитанные эффективные константы при разных концентрацих триэтиламина.
+
+\vspace{0.3cm}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    $V_{\text{\textit{р-ра}}}$([$\rm NEt_3$] = 0.05 M), мл & 1.0 & 1.5 & 2.0 & 2.5 & 3.0\\
+    \hline
+    [$\rm NEt_3$]$_0$, мM & 2.0 & 3.0 & 4.0 & 5.0 & 6.0\\
+    \hline
+    $k_{eff}$, M$^{-1}$c$^{-1}$ & 32.8 $\pm$ 0.1 & 48.9 $\pm$ 0.2 & 46.3 $\pm$ 0.2 & 49.6 $\pm$ 0.2 & 17.80 $\pm$ 0.01 \\
+    \hline
+     
+\end{tabular}
+\end{center}
+\vspace{0.2 cm}
+
+\graphicspath{{./images/}}
+		\begin{center}
+		
+			\includegraphics[scale=0.8]{k_eff.png}
+    \par
+\textbf{Рис. 11}: \textit{Зависимость эффективной константы скорости от начальной концентрации основания}.
+\end{center}
+\par \vspace{0.5 cm}
+
+
+\section{\LARGE Обсуждение результатов}
+\par \hspace{0.4 cm}
+Были рассчитаны эффективные константы скорости реакции азосочетания $k_{eff}$ при разных начальных концентрациях органического основания триэтиламина (см. \textit{табл. 2} и \textit{рис. 11}), однако полученные резальтаты не дают проследить какую-то тенденцию (напомним, что исходя из теоретической части зависимость должна быть линейной). Соответственно, оценка величин $k_2^{'}$ и $k_3^{'}$, характеризующих скорости взаимодействия $\sigma$-комплекса c триэтиламином или водой, в таком методе оказывается невыполнимой. \par \vspace{0.2 cm}
+Стоит отметить, что температура не была постоянной на протяжении всего опыта, а стала подниматься ближе к концу: от 27 до >29$^{\circ}$С, однако влияние этого фактора на результаты не должно быть существенным. На графиках из \textit{рис. 3} видно, что при значениях оптической плотности начиная от 2 -- 2.5 показания спектрофотометра допускают уже очень существенные шумы (видны даже в логарифимическом масштабе). Этим был обусловлен выбор диапазона использования первичных экспериментальных данных. Однако в опыте по определению $D_{\infty}$ этот порог был очень существенно превышен, поэтому оценку величины предельной оптической плотности (4.5) можно считать лишь условной. В действительности потребовалось бы использование разбавленного раствора или кюветы с меньшей толщиной. \par
+Также могло произойти нарушение порядка измерений или составов растворов. Кроме того, можно заметить, что наиболее отклоняется от предполагаемой линейной зависимости точка, соответствующая максимальной концентрации триэтиламина. Это измерение проводилось сразу после буферного раствора и можно предположить, например, некие потери оптической плотности из-за влияния избыточного количества буферного раствора на стенках кюветы, то есть нарушение закона Бугера--Ламберта--Бэра в привычном его понимании.
+
+
+\end{document}	
